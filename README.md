@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Treemory: Your Family Tree and Memories Platform
+
+Treemory is an innovative SaaS platform where family trees and memories merge to create a living tapestry of your lineage. It's not just about mapping genealogies; it's about enriching those connections with the essence of personal stories, experiences, and shared history. Treemory is where every branch tells a story.
+
+This project is built using Typescript, Next.js 14 (React), Server Components and a lot of other interesting things:
+- Typescript
+- NextJs 14
+- Server Components
+- ShadCN
+- TailwindCss
 
 ## Getting Started
 
