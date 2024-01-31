@@ -5,7 +5,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Treemory: Weave Your Family Tree with Memories",
+  title: {
+    template: "%s - Treemory",
+    default: "Treemory: Weave Your Family Tree with Memories",
+  },
   description:
     "Treemory is an innovative platform designed to intertwine your family tree with rich personal memories and stories. Discover, preserve, and share your family's legacy in a tapestry of cherished moments and ancestral connections.",
 };

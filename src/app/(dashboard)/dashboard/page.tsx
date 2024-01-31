@@ -1,4 +1,9 @@
 import { getServerAuthSessionOrRedirect } from "@/server/auth";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+};
 
 export default async function Home() {
   const session = await getServerAuthSessionOrRedirect();
