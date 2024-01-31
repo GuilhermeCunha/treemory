@@ -10,6 +10,9 @@ This project is built using Typescript, Next.js 14 (React), Server Components an
 - TailwindCss
 - Docker
 - MySQL
+- Zod
+- React Hook Form
+- NextAuth
 
 ## Getting Started
 

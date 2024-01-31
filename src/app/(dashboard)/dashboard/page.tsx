@@ -1,0 +1,10 @@
+import { getServerAuthSessionOrRedirect } from "@/server/auth";
+
+export default async function Home() {
+  const session = await getServerAuthSessionOrRedirect();
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <span>Logged User: {session.user.email}</span>
+    </main>
+  );
+}
