@@ -8,6 +8,8 @@ This project is built using Typescript, Next.js 14 (React), Server Components an
 - Server Components
 - ShadCN
 - TailwindCss
+- Docker
+- MySQL
 
 ## Getting Started
 
