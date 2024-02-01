@@ -12,7 +12,7 @@ This project is built using Typescript, Next.js 14 (React), Server Components an
 - MySQL
 - Zod
 - React Hook Form
-- NextAuth
+- Clerk
 
 ## Getting Started
 
