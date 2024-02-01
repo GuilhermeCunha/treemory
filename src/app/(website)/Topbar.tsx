@@ -11,7 +11,7 @@ const Topbar = () => {
       </Link>
       <div className="flex w-full justify-end items-center space-x-2">
         <Button asChild className="bg-primary rounded-full px-8 text-white">
-          <Link href="/sign-in">Login</Link>
+          <Link href="/dashboard">Login</Link>
         </Button>
       </div>
     </div>
