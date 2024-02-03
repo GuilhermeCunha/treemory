@@ -13,6 +13,8 @@ export type TreeNode = {
   id: string;
   name: string;
   partners?: TreeNode[];
+  parents?: TreeNode[];
+  siblings?: TreeNode[];
   children?: TreeNode[];
 };
 
@@ -22,35 +24,30 @@ const member: TreeRoot = {
     {
       id: "5",
       name: "Dagoberto Gentil Silva da Cunha",
-      children: [
+      partners: [
         {
-          id: "2",
-          name: "Guilherme Silva da Cunha",
-          partners: [
-            {
-              id: "22",
-              name: "Camila",
-            },
-            {
-              id: "22",
-              name: "Camila 2",
-            },
-          ],
+          id: "22",
+          name: "Alba",
           children: [
-            {
-              id: "2",
-              name: "Tobby",
-            },
+            { id: "23", name: "Higor" },
+            { id: "23", name: "Marcela" },
           ],
         },
         {
-          id: "3",
-          name: "Gabriel Gentil Silva da Cunha",
+          id: "23",
+          name: "Lidice",
           children: [
             {
-              id: "4",
-              name: "Dog",
+              id: "23",
+              name: "Guilherme",
+              partners: [
+                {
+                  id: "22",
+                  name: "Camila",
+                },
+              ],
             },
+            { id: "23", name: "Gabriel" },
           ],
         },
       ],
