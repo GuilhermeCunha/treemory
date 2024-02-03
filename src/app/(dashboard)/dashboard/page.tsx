@@ -1,13 +1,5 @@
 import { Metadata } from "next";
-import { UserButton } from "@clerk/nextjs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DashboardPageTitle } from "./components/dashboard-page-title";
 import { Icons } from "@/components/icons";
 import {
@@ -17,6 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -30,10 +23,14 @@ const families = [
     updatedAt: new Date(),
   },
 ];
-export default async function Home() {
+export default async function Dashboard() {
   return (
     <main>
       <DashboardPageTitle title="Families" />
+      <div className="flex w-full justify-end px-4">
+        {/* TODO Implement the creation login */}
+        <Button>Create</Button>
+      </div>
       <div className="grid grid-cols-4 gap-2">
         {families.map((family) => (
           <Card key={family.id}>
@@ -75,7 +72,15 @@ export default async function Home() {
                   </TooltipProvider>
                 </li>
               </ul>
-              <Button className="mt-2">Manage</Button>
+
+              <Button asChild>
+                <Link
+                  className="mt-2"
+                  href={`/dashboard/families/${family.id}/manage`}
+                >
+                  Manage
+                </Link>
+              </Button>
             </CardContent>
           </Card>
         ))}
