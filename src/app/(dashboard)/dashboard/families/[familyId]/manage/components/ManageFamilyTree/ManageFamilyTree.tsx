@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
 import styles from "./ManageFamilyTree.module.css";
-import { cn } from "@/lib/utils";
+import { v4 as uuid } from "uuid";
+import { Icons } from "@/components/icons";
 
 export type TreeRoot = {
   name: string;
   partners?: TreeNode[];
   children?: TreeNode[];
+  isPartner?: boolean;
 };
 
 export type TreeNode = {
@@ -16,62 +18,79 @@ export type TreeNode = {
   parents?: TreeNode[];
   siblings?: TreeNode[];
   children?: TreeNode[];
+  isPartner?: boolean;
 };
+
+const generateID = () => uuid();
 
 const member: TreeRoot = {
   name: "Family Cunha",
   children: [
     {
-      id: "5",
+      id: generateID(),
       name: "Dagoberto Gentil Silva da Cunha",
       partners: [
         {
-          id: "22",
+          id: generateID(),
           name: "Alba",
+          isPartner: true,
           children: [
-            { id: "23", name: "Higor" },
-            { id: "23", name: "Marcela" },
+            { id: generateID(), name: "Higor" },
+            { id: generateID(), name: "Marcela" },
           ],
         },
         {
-          id: "23",
+          id: generateID(),
           name: "Lidice",
+          isPartner: true,
           children: [
             {
-              id: "23",
+              id: generateID(),
               name: "Guilherme",
               partners: [
                 {
-                  id: "22",
+                  id: generateID(),
                   name: "Camila",
+                  isPartner: true,
+                  children: [
+                    {
+                      id: generateID(),
+                      name: "Tobby",
+                    },
+                  ],
                 },
               ],
             },
-            { id: "23", name: "Gabriel" },
+            { id: generateID(), name: "Gabriel" },
           ],
+        },
+        {
+          id: generateID(),
+          name: "Joaquina",
+          isPartner: true,
         },
       ],
     },
     {
-      id: "6",
+      id: generateID(),
       name: "Sidney",
       children: [
         {
-          id: "61",
+          id: generateID(),
           name: "Zé arlindo",
           children: [
             {
-              id: "62",
+              id: generateID(),
               name: "Tobby",
             },
           ],
         },
         {
-          id: "63",
+          id: generateID(),
           name: "Nilza",
           children: [
             {
-              id: "64",
+              id: generateID(),
               name: "Dog",
             },
           ],
@@ -88,15 +107,16 @@ export const ManageFamilyTreeRecursive = ({
   node,
 }: ManageFamilyTreeRecursiveProps) => {
   return (
-    <li
-      className={cn({
-        [styles.testNode]: node.name === "Guilherme Silva da Cunha",
-      })}
-    >
+    <li className={node.isPartner ? styles.partnerItem : styles.childItem}>
       {/* TODO Implement partners case */}
       {node.partners ? (
-        <div className="flex">
-          <a className={styles.treeNode}>{node.name}</a>
+        <div className="flex flex-col relative">
+          <div>
+            <a className={styles.treeNode}>{node.name}</a>
+          </div>
+          <div className="flex w-full justify-center items-center p-2">
+            <Icons.weddingIcon className="w-6 h-6" />
+          </div>
           {node.partners && (
             <ul className={styles.partnerList}>
               {node.partners.map((partner) => (

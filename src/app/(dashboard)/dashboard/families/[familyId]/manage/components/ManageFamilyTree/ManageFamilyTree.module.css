@@ -10,7 +10,7 @@
   position: relative;
   transition: all 0.5s;
 }
-.tree .childList li {
+.tree .childList .childItem {
   float: left;
   text-align: center;
   list-style-type: none;
@@ -26,8 +26,8 @@
 }
 
 /* Lines between nodes */
-.tree .childList li::before,
-.tree .childList li::after {
+.tree .childList .childItem::before,
+.tree .childList .childItem::after {
   content: "";
   position: absolute;
   top: 0;
@@ -36,28 +36,28 @@
   width: 50%;
   height: 20px;
 }
-.tree .childList li::after {
+.tree .childList .childItem::after {
   right: auto;
   left: 50%;
   border-left: 1px solid gray;
 }
-.tree .childList li:only-child::after,
-.tree .childList li:only-child::before {
+.tree .childList .childItem:only-child::after,
+.tree .childList .childItem:only-child::before {
   display: none;
 }
 
-.tree .childList li:only-child {
+.tree .childList .childItem:only-child {
   padding-top: 0;
 }
-.tree .childList li:first-child::before,
-.tree .childList li:last-child::after {
+.tree .childList .childItem:first-child::before,
+.tree .childList .childItem:last-child::after {
   border: 0 none;
 }
-.tree .childList li:last-child::before {
+.tree .childList .childItem:last-child::before {
   border-right: 1px solid gray;
   border-radius: 0 5px 0 0;
 }
-.tree .childList li:first-child::after {
+.tree .childList .childItem:first-child::after {
   border-radius: 5px 0 0 0;
 }
 
@@ -72,7 +72,7 @@
 }
 
 /* Styling individual nodes */
-.tree .childList li .treeNode {
+.tree .treeNode {
   border: 1px solid gray;
   padding: 5px 10px;
   text-decoration: none;
@@ -84,20 +84,13 @@
   transition: all 0.5s;
 }
 
-/* Partner list style */
-
-.verticalLine {
-  display: inline-block;
-  border-top: 1px solid black;
-  width: 2em;
-}
-
+/* Child list styles */
 .tree .partnerList {
-  padding-top: 20px;
-  position: relative;
+  top: 0px;
+  left: 0px;
   transition: all 0.5s;
 }
-.tree .partnerList li {
+.tree .partnerList .partnerItem {
   float: left;
   text-align: center;
   list-style-type: none;
@@ -113,94 +106,50 @@
 }
 
 /* Lines between nodes */
-.tree .partnerList li::before,
-.tree .partnerList li::after {
+.tree .partnerList .partnerItem::before,
+.tree .partnerList .partnerItem::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 50%;
+  right: 50%;
   border-top: 1px solid gray;
   width: 50%;
   height: 20px;
 }
-.tree .partnerList li::after {
+.tree .partnerList .partnerItem::after {
   right: auto;
   left: 50%;
   border-left: 1px solid gray;
 }
+.tree .partnerList .partnerItem:only-child::after,
+.tree .partnerList .partnerItem:only-child::before {
+  display: none;
+}
 
-.tree .partnerList li:first-child::before,
-.tree .partnerList li:last-child::after {
+.tree .partnerList .partnerItem:only-child {
+  padding-top: 0;
+}
+.tree .partnerList .partnerItem:first-child::before,
+.tree .partnerList .partnerItem:last-child::after {
   border: 0 none;
 }
-.tree .partnerList li:last-child::before {
+.tree .partnerList .partnerItem:last-child::before {
   border-right: 1px solid gray;
   border-radius: 0 5px 0 0;
 }
-.tree .partnerList li:first-child::after {
+.tree .partnerList .partnerItem:first-child::after {
   border-radius: 5px 0 0 0;
 }
 
-.tree .partnerList .partnerList::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  border-left: 1px solid gray;
-  width: 0;
-  height: 20px;
-}
-
-/* Styling individual nodes */
-.tree .partnerList li .treeNode {
-  border: 1px solid gray;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #666;
-  font-family: arial, verdana, tahoma;
-  font-size: 11px;
-  display: inline-block;
-  border-radius: 5px;
-  transition: all 0.5s;
-}
-
-.testNode {
-  position: relative;
-  padding-top: 20px;
-  padding-right: 100px;
-  padding-left: 5px;
-}
-
 .tree li .treeNode:hover,
-.tree li .treeNode:hover + .childList li .treeNode {
+.tree li .treeNode:hover + .childList .childItem .treeNode {
   background: #c8e4f8;
   color: #000;
   border: 1px solid gray;
 }
-.tree li .treeNode:hover + .childList li::after,
-.tree li .treeNode:hover + .childList li::before,
+.tree li .treeNode:hover + .childList .childItem::after,
+.tree li .treeNode:hover + .childList .childItem::before,
 .tree li .treeNode:hover + .childList::before,
 .tree li .treeNode:hover + .childList .childList::before {
   border-color: gray;
-}
-
-/* Couple representation */
-.tree li.couple {
-  padding: 10px;
-  display: inline-block;
-  vertical-align: top;
-}
-.tree li.couple .treeNode {
-  margin: 0 5px;
-  border: 1px solid #abc;
-}
-
-/* Additional styles for individuals with multiple relationships */
-.tree li.multiple-relationships > .treeNode {
-  margin: 0 5px;
-  border: 1px solid #abc;
-}
-
-.tree li.multiple-relationships .couple .treeNode {
-  background-color: #e8eff5; /* Adjust if necessary for visual clarity */
 }
