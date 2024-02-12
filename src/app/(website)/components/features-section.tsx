@@ -1,4 +1,6 @@
 import { Icons } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import React from "react";
 
 const features = [
@@ -53,6 +55,14 @@ export const FeaturesSection = () => {
               </div>
             ))}
           </dl>
+          <div className="mt-8">
+            <Button asChild variant="link">
+              <Link href="/dashboard">
+                Are you looking for a feature we don&apos;t have yet? Get
+                started now and contact us
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
