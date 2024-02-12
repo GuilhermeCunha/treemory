@@ -1,12 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Logo } from "./Logo";
+import { Logo } from "./treemory-logo";
+import { cn } from "@/lib/utils";
 
-const Topbar = () => {
+export type TopbarProps = {
+  className?: string;
+};
+export const Topbar = ({ className }: TopbarProps) => {
   return (
-    <div className="flex w-full px-10 py-8">
-      <Link href="/">
+    <div className={cn("flex w-full px-10 py-6 bg-white shadow-sm", className)}>
+      <Link href="/" className="flex justify-center items-center">
         <Logo className="w-28 h-auto" />
       </Link>
       <div className="flex w-full justify-end items-center space-x-2">
@@ -17,5 +20,3 @@ const Topbar = () => {
     </div>
   );
 };
-
-export default Topbar;
