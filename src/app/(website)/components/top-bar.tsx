@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Logo } from "./Logo";
+import { Logo } from "./treemory-logo";
 
 const Topbar = () => {
   return (
